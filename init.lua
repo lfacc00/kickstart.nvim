@@ -125,8 +125,8 @@ vim.opt.breakindent = true
 vim.opt.undofile = true
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.opt.ignorecase = false
+vim.opt.smartcase = false
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
@@ -191,6 +191,13 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
+
+-- I added this part because it would be cool to automatically format code you are working on
+-- it could be C code or Python code so adjust it accordingly and move it where it belongs
+-- Auto-format using clang-format before saving a file
+-- vim.cmd [[
+--  autocmd BufWritePre *.c,*.cpp !clang-format -i %
+-- ]]
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
